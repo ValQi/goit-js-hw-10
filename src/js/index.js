@@ -3,8 +3,8 @@ import { fetchBreeds, fetchCatByBreed } from ".js/cat-api.js";
 
 const breedSelect = document.querySelector('.breed-select');
 
-const infoLoader = document.querySelector('.loader');
-const selectError = document.querySelector('.error');
+const infoLoad = document.querySelector('.loader');
+const Error = document.querySelector('.error');
 const catInfo = document.querySelector('.cat-info');
 
 window.addEventListener('load', init);
@@ -21,22 +21,22 @@ function init() {
                 breedSelect.appendChild(option);
 
                 breedSelect.classList.remove('hidden');
-                infoLoader.classList.add('hidden');
+                infoLoad.classList.add('hidden');
             })
         })
   // catch
         .catch(error => {
             console.log(error);
-            selectError.classList.remove('hidden');
+            Error.classList.remove('hidden');
             breedSelect.classList.add('hidden');
-            infoLoader.classList.add('hidden');
+            infoLoad.classList.add('hidden');
         })
 // breed
     breedSelect.addEventListener('change', () => {
         const selectBreedId = breedSelect.value;
-        infoLoader.classList.remove('hidden');
+        infoLoad.classList.remove('hidden');
         catInfo.classList.add('hidden');
-        selectError.classList.add('hidden');
+        Error.classList.add('hidden');
 
         fetchCatByBreed(selectBreedId)
             .then(result => {
@@ -46,13 +46,13 @@ function init() {
                 const markup = createMarkup(catData, breedData);
                 catInfo.innerHTML = markup;
 
-                infoLoader.classList.add('hidden');
+                infoLoad.classList.add('hidden');
                 catInfo.classList.remove('hidden');
             })
             .catch(error => {
                 console.log(error);
-                selectError.classList.remove('hidden');
-                infoLoader.classList.add('hidden');
+                Error.classList.remove('hidden');
+                infoLoad.classList.add('hidden');
             })
     });
 };
