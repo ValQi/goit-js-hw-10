@@ -1,0 +1,45 @@
+.loader {
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    position: relative;
+  }
+  .loader::after,
+  .loader::before {
+    content: '';  
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 2px solid #FFF;
+    position: absolute;
+    left: 0;
+    top: 0;
+    animation: animloader 2s linear infinite;
+  }
+  .loader::after {
+    animation-delay: 1s;
+  };
+
+  .breed-select {
+    width: 200px;
+    height: 25px;
+}
+
+.error {
+    color: red;
+}
+.cat-info {
+    display: flex;
+    gap: 45px;
+    margin-top: 25px;
+}
+
+.textInfo {
+    font-size: large;
+    max-width: 600px;
+}
+
+.hidden {
+    display: none;
+}
