@@ -42,4 +42,16 @@
 
 .hidden {
     display: none;
+    
+}
+
+.loading-breed-select {
+  display: none;
+}
+
+.loading-cat-info {
+  display: none;
+}
+.error {
+  display: none;
 }
