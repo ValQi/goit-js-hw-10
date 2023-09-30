@@ -3,25 +3,8 @@
     height: 48px;
     display: inline-block;
     position: relative;
+    font-weight: 800;
   }
-  .loader::after,
-  .loader::before {
-    content: '';  
-    box-sizing: border-box;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    border: 2px solid #FFF;
-    position: absolute;
-    left: 0;
-    top: 0;
-    animation: animloader 2s linear infinite;
-  }
-  
-  .loader::after {
-    animation-delay: 1s;
-  }
-
   .breed-select {
     width: 200px;
     height: 25px;
@@ -38,7 +21,7 @@
 
 .textInfo {
     font-size: large;
-    max-width: 600px;
+    max-width: 800px;
 }
 
 .hidden {
@@ -46,13 +29,3 @@
     
 }
 
-.loading-breed-select {
-  display: none;
-}
-
-.loading-cat-info {
-  display: none;
-}
-.error {
-  display: none;
-}
