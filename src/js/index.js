@@ -8,6 +8,8 @@ const catInfo = document.querySelector('.cat-info');
 
 window.addEventListener('load', init);
 
+Error.classList.add('hidden');
+
 function init() {
     let breedsData;
 
@@ -26,11 +28,10 @@ function init() {
             });
         })
         .catch(error => {
-            console.log(error);
-
             Error.classList.remove('hidden');
             breedSelect.classList.add('hidden');
             infoLoad.classList.add('hidden');
+            console.log(error);
         });
 
     breedSelect.addEventListener('change', () => {
@@ -65,4 +66,4 @@ function createMarkup(catData, breedData) {
         <div class='textInfo'><h1>${breedData.name}</h1>
         <p>${breedData.description}</p>
         <p><b>Temperament:</b> ${breedData.temperament}</p></div>`;
-}
+};
