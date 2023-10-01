@@ -12,28 +12,27 @@ Error.classList.add('hidden');
 
 function init() {
     let breedsData;
+    breedSelect.classList.add('hidden');
 
     infoLoad.classList.remove('hidden');
-
     fetchBreeds()
-        .then(data => {
-            breedsData = data;
-            data.forEach(breed => {
-                const option = document.createElement('option');
-                option.value = breed.id;
-                option.textContent = breed.name;
-                breedSelect.appendChild(option);
-                breedSelect.classList.remove('hidden');
-                infoLoad.classList.add('hidden');
-            });
-        })
-        .catch(error => {
-            Error.classList.remove('hidden');
-            breedSelect.classList.add('hidden');
+    .then(data => {
+        breedsData = data;
+        data.forEach(breed => {
+            const option = document.createElement('option');
+            option.value = breed.id;
+            option.textContent = breed.name;
+            breedSelect.appendChild(option);
+            breedSelect.classList.remove('hidden');
             infoLoad.classList.add('hidden');
-            console.log(error);
         });
-
+    })
+    .catch(error => {
+        Error.classList.remove('hidden');
+        breedSelect.classList.add('hidden'); 
+        infoLoad.classList.add('hidden');
+        console.log(error);
+    });
     breedSelect.addEventListener('change', () => {
         const selectBreedId = breedSelect.value;
 
@@ -66,4 +65,4 @@ function createMarkup(catData, breedData) {
         <div class='textInfo'><h1>${breedData.name}</h1>
         <p>${breedData.description}</p>
         <p><b>Temperament:</b> ${breedData.temperament}</p></div>`;
-};
+}
